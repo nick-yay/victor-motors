@@ -7,6 +7,7 @@ public sealed class Veiculo permits Automovel, Caminhao, Moto{
     private String modelo;
     private String cor;
 
+    public Veiculo(){}
     public Veiculo(String placa, String CRLV, int eixos, String modelo, String cor) {
         this.placa = placa;
         this.CRLV = CRLV;
@@ -14,4 +15,10 @@ public sealed class Veiculo permits Automovel, Caminhao, Moto{
         this.modelo = modelo;
         this.cor = cor;
     }
+    @Override
+    public String toString() {
+        return "Veiculo [placa=" + placa + ", CRLV=" + CRLV + ", eixos=" + eixos + ", modelo=" + modelo + ", cor=" + cor
+                + "]";
+    }
+    
 }
