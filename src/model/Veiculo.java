@@ -20,5 +20,20 @@ public sealed class Veiculo permits Automovel, Caminhao, Moto{
         return "Veiculo [placa=" + placa + ", CRLV=" + CRLV + ", eixos=" + eixos + ", modelo=" + modelo + ", cor=" + cor
                 + "]";
     }
+    public String getPlaca() {
+        return placa;
+    }
+    public String getCRLV() {
+        return CRLV;
+    }
+    public int getEixos() {
+        return eixos;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public String getCor() {
+        return cor;
+    }
     
 }
