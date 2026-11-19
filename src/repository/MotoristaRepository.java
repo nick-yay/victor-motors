@@ -1,33 +1,12 @@
 package repository;
 
-import java.util.ArrayList;
-import java.util.List;
 import model.Motorista;
-import service.DocService;
 
-public class MotoristaRepository {
-    private final static List<Motorista> repMotoristas = new ArrayList<>();
-
-    public static void saveMotorista(Motorista m){
-        repMotoristas.add(m);
+public class MotoristaRepository extends AbstractRepository<Motorista>{
+    public Motorista findByCPF(String cpf){
+        return findBy(m -> m.getCPF().equals(cpf));
     }
-
-    public static void saveMotorista(List<Motorista> m) {
-        m.forEach(mt -> repMotoristas.add(mt));
-    }
-
-    public static Motorista findByCPF(){
-        String cpf = DocService.formatarCPF();
-        for (Motorista m : repMotoristas){
-            if(m.getCPF().equals(cpf)){
-                return m;
-            }
-        }
-        System.out.println("Motorista não encontrado");
-        return null;
-    }
-    
-    public static void allMotoristas(){
-        repMotoristas.forEach(m -> System.out.println(m));
+    public void removeByCPF(String cpf){
+        remove(findByCPF(cpf));
     }
 }

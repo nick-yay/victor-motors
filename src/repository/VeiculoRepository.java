@@ -1,19 +1,12 @@
 package repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import model.Motorista;
 import model.Veiculo;
 
-public class VeiculoRepository {
-    private static List<Veiculo> repVeiculos = new ArrayList<Veiculo>();
-
-    public static void saveMotorista(Veiculo v){
-        repVeiculos.add(v);
-    }
-
-    public static void saveMotorista(ArrayList<Veiculo> v) {
-        v.forEach(ve -> repVeiculos.add(ve));
+public final class VeiculoRepository extends AbstractRepository<Veiculo>{
+    public Veiculo findByCRV(String crv){
+        return findBy(v -> v.getCRV().equals(crv));
+    } 
+    public void removeByCRV(String crv){
+        remove(findByCRV(crv));
     }
 }

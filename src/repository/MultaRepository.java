@@ -1,19 +1,12 @@
 package repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import model.Motorista;
 import model.Multa;
 
-public class MultaRepository {
-    private static List<Multa> repMultas = new ArrayList<Multa>();
-
-    public static void saveMotorista(Multa m){
-        repMultas.add(m);
+public class MultaRepository extends AbstractRepository<Multa>{
+    public Multa findByAIT(int ait){
+        return findBy(m -> m.getAIT() == ait);
     }
-
-    public static void saveMotorista(ArrayList<Multa> m) {
-        m.forEach(mt -> repMultas.add(mt));
+    public void removeByAIT(int ait){
+        remove(findByAIT(ait));
     }
 }
