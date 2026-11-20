@@ -19,7 +19,7 @@ public class MotoristaUtil {
 
         System.out.print("Endereço: ");
         var endereco = sc.nextLine();
-
+        
         Genero genero = null;
         while (genero == null) {
             System.out.print("Genero (M/F): ");
